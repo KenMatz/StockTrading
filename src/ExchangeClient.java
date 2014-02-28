@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
- *
+ * @author Quinn Liu (quinnliu@vt.edu)
  * @author atamarkin2
  */
 public class ExchangeClient {
