@@ -24,23 +24,23 @@ public class APICommands {
 	return "SECURITIES";
     }
 
-    public String listAllOffersOnTheExchangeForATicker(int ticker) {
+    public String listAllOffersOnTheExchangeForATicker(String ticker) {
 	return "OFFERS " + ticker;
     }
 
-    public String placeNewBid(int ticker, int price, int shares) {
+    public String placeNewBid(String ticker, int price, int shares) {
 	return "BID " + ticker + " " + price + " " + shares;
     }
 
-    public String placeNewAsk(int ticker, int price, int shares) {
+    public String placeNewAsk(String ticker, int price, int shares) {
 	return "ASK " + ticker + " " + price + " " + shares;
     }
 
-    public String clearYourBid(int ticker) {
+    public String clearYourBid(String ticker) {
 	return "CLEAR_BID " + ticker;
     }
 
-    public String clearYourAsk(int ticker) {
+    public String clearYourAsk(String ticker) {
 	return "CLEAR_ASK " + ticker;
     }
 
