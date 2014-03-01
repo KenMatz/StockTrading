@@ -1,3 +1,7 @@
+/**
+ *  @author Quinn Liu (quinnliu@vt.edu)
+ *  @version Feb 28, 2014
+ */
 public class TradingAlgorithm {
 
     public TradingAlgorithm() {
