@@ -12,10 +12,16 @@ public class APICommands {
 	return "MY_CASH";
     }
 
+    /**
+     * If you want a bid command to immediately execute make price > ask.
+     */
     public String placeNewBid(String ticker, int price, int shares) {
 	return "BID " + ticker + " " + price + " " + shares;
     }
 
+    /**
+     * If you want an ask command to immediately execute make price < bid.
+     */
     public String placeNewAsk(String ticker, int price, int shares) {
 	return "ASK " + ticker + " " + price + " " + shares;
     }
