@@ -6,7 +6,7 @@ import java.io.IOException;
  */
 public class ExecuteCommandsTest extends junit.framework.TestCase {
     private long currentTimeInSecondsSinceMidnightJanuaryFirst1970;
-    private long numberOfSecondToRunTradingAlgorithm;
+    private long numberOfSecondsToRunTradingAlgorithm;
     private long timeToStopProgram;
 
     private APICommands APICommands;
@@ -14,18 +14,30 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
     public void setUp() {
 	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
 		.currentTimeMillis() / 1000);
-	this.numberOfSecondToRunTradingAlgorithm = 5;
+	this.numberOfSecondsToRunTradingAlgorithm = 5;
 	this.timeToStopProgram = currentTimeInSecondsSinceMidnightJanuaryFirst1970
-		+ this.numberOfSecondToRunTradingAlgorithm;
+		+ this.numberOfSecondsToRunTradingAlgorithm;
 
 	this.APICommands = new APICommands();
     }
 
     public void testCallingAPICommandsUntilSpecifiedStopTime()
 	    throws IOException {
-	String[] commandLineArguments = { "172.31.231.85", "17429",
-		"onesqueakywheel", "onemanarmy",
-		this.APICommands.getCurrentCash() };
+	String hostIPAddress = "172.31.231.85";
+	String portNumber = "17429";
+	String teamName = "onesqueakywheel";
+	String teamPassword = "onemanarmy";
+	String[] commandLineArguments = { hostIPAddress, portNumber, teamName,
+		teamPassword, this.APICommands.getCurrentCash() };
+
+	int hours = (int) (numberOfSecondsToRunTradingAlgorithm / 3600);
+	int minutes = (int) (numberOfSecondsToRunTradingAlgorithm / 60);
+	int seconds = (int) (this.numberOfSecondsToRunTradingAlgorithm - hours
+		* 3600 - minutes * 60);
+
+	System.out.println("This program will stop trading in " + hours
+		+ " hour(s), " + minutes + " minute(s), and " + seconds
+		+ " second(s)");
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
