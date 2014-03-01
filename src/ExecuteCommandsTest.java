@@ -22,6 +22,14 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 		.currentTimeMillis() / 1000);
     }
 
+    public void pauseAllProgramsOneSecond() {
+	try {
+	    Thread.sleep(1000);
+	} catch (InterruptedException ex) {
+	    Thread.currentThread().interrupt();
+	}
+    }
+
     public void testCallingAPICommands() throws IOException {
 
 	System.out.println("this is working");
@@ -35,14 +43,9 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
 	    ExchangeClient.main(commandLineArguments);
-	    this.updateCurrentTime();
 
-	    // make the program wait 1 second before continuing
-	    try {
-		Thread.sleep(1000);
-	    } catch (InterruptedException ex) {
-		Thread.currentThread().interrupt();
-	    }
+	    this.pauseAllProgramsOneSecond();
+	    this.updateCurrentTime();
 	}
     }
 }
