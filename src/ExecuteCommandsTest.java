@@ -46,26 +46,36 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
-	    // HOW TO MAKE MONEY:
-	    // Step 1) find out 2 stocks that are increasing linearly
-
-	    String[] teamACommandLineArguments = { this.hostIPAddress,
-		    this.portNumber, this.houseOfCardsTeam,
+	    String[] teamACommandLineArguments = {
+		    this.hostIPAddress,
+		    this.portNumber,
+		    this.houseOfCardsTeam,
 		    this.houseOfCardsTeamPassword,
-		    this.APICommands.getAllSharesYouOwn() };
+		    this.APICommands
+			    .placeNewBid("FB", 20, 50) };
 
 	    String[] teamBCommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.onesqueakywheelTeam,
 		    this.onesqueakywheelTeamPassword,
-		    this.APICommands.getAllSharesYouOwn() };
+		    this.APICommands.placeNewBid("EA", 20, 50) };
+
+	    // HOW TO MAKE MONEY:
+	    // Step 1) find out 2 stocks that are increasing linearly
+	    String stockOne = "FB";
+	    String stockTwo = "EA";
 
 	    // Step 2) find 2 stocks that are both increasing in net value
 	    // example: stockOne(EA) & stockTwo(FB)
 
 	    // Step 3) teamA buy stockOne(EA) & treamB buys stockTwo(FB) right
 	    // above the ask price
+	    double stockOneAskPrice = 50;
+	    double stockTwoAskPrice = 50;
+	    ExchangeClient.main(teamACommandLineArguments);
+	    ExchangeClient.main(teamBCommandLineArguments);
 
 	    // Step 4) a minute(not to long as dividends get very small) latter
+	    //this.pauseAllProgramsThirtySeconds();
 
 	    // make sure initial bid price is > the next ask price I am going to
 	    // use stock with lowest ask price
@@ -75,12 +85,22 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    // Step 5) immediately after teamA buys stockTwo(FB) & teamB buys
 	    // stockOne(EA)
 
-	    ExchangeClient.main(teamACommandLineArguments);
-	    ExchangeClient.main(teamBCommandLineArguments);
-
 	    this.pauseAllProgramsOneSecond();
 	    this.updateCurrentTime();
 	}
+    }
+
+    private String whichStockIsLinearlyIncreasing() {
+	//System.out.println("which stock is linearly increasing");
+	String[] teamACommandLineArguments = {
+		this.hostIPAddress,
+		this.portNumber,
+		this.houseOfCardsTeam,
+		this.houseOfCardsTeamPassword,
+		this.APICommands
+			.getAllSecuritiesInTheForm_ticker_netWorth_divident_volatility() };
+	//System.out.println(teamACommandLineArguments[0]);
+	return "";
     }
 
     private void updateCurrentTime() {
@@ -91,6 +111,14 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
     private void pauseAllProgramsOneSecond() {
 	try {
 	    Thread.sleep(1000);
+	} catch (InterruptedException ex) {
+	    Thread.currentThread().interrupt();
+	}
+    }
+
+    private void pauseAllProgramsThirtySeconds() {
+	try {
+	    Thread.sleep(1000 * 30);
 	} catch (InterruptedException ex) {
 	    Thread.currentThread().interrupt();
 	}
