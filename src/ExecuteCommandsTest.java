@@ -57,7 +57,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    String[] teamBCommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.onesqueakywheelTeam,
 		    this.onesqueakywheelTeamPassword,
-		    this.APICommands.placeNewAsk("MSFT", 8, 49) };
+		    this.APICommands.getAllSharesYouOwn() };
 
 	    // Step 2) find 2 stocks that are both increasing in net value
 	    // example: stockOne(EA) & stockTwo(FB)
@@ -68,7 +68,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    // Step 4) a minute(not to long as dividends get very small) latter
 
 	    // make sure initial bid price is > the next ask price I am going to
-	    // use
+	    // use stock with lowest ask price
 
 	    // teamA sell stockOne(EA) & teamB sells stockTwo(FB)
 
