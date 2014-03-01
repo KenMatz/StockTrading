@@ -14,7 +14,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
     public void setUp() {
 	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
 		.currentTimeMillis() / 1000);
-	this.numberOfSecondsToRunTradingAlgorithm = 60;
+	this.numberOfSecondsToRunTradingAlgorithm = 1;
 	this.timeToStopProgram = currentTimeInSecondsSinceMidnightJanuaryFirst1970
 		+ this.numberOfSecondsToRunTradingAlgorithm;
 
@@ -43,8 +43,8 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
 	    ExchangeClient.main(commandLineArguments);
 
-	    this.updateCurrentTime();
 	    this.pauseAllProgramsOneSecond();
+	    this.updateCurrentTime();
 	}
     }
 
