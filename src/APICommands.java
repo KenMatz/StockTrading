@@ -1,12 +1,11 @@
+/**
+ * @author Quinn Liu (quinnliu@vt.edu)
+ * @version Feb 28, 2014
+ */
 public class APICommands {
 
     public APICommands() {
 	// not necessary
-
-	// OFFERS <ticker> = will list all offers on the exchange for a ticker
-	// BID <ticker> <price> <shares> = place a new bid
-	// ASK <ticker> <price> <shares> = place a new ask
-	// CLEAR_BID <ticker> = clear your bid
     }
 
     public String getCurrentCash() {
