@@ -53,9 +53,11 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    // Step 2) teamA buy stockOne & treamB buys stockTwo right above the
 	    // ask price
 
-	    // Step 3) few second later A sell EA & B sells FB
+	    // Step 3) a minute(not to long as dividends get very small) latter
+	    // teamA sell stockOne(EA) & teamB sells stockTwo(FB)
 
-	    // Step 4) immediately A buys FB & B buys EA
+	    // Step 4) immediately after teamA buys stockTwo(FB) & teamB buys
+	    // stockOne(EA)
 	    String[] teamACommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.houseOfCardsTeam,
 		    this.houseOfCardsTeamPassword,
