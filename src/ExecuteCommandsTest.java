@@ -50,7 +50,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    String[] teamACommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.houseOfCardsTeam,
 		    this.houseOfCardsTeamPassword,
-		    this.APICommands.placeNewBid("FB", 110, 9) }; // placeNewBid("FB",
+		    this.APICommands.placeNewBid("FB", 31, 31) }; // placeNewBid("FB",
 								  // 24, 40)
 
 //	    String[] teamBCommandLineArguments = { this.hostIPAddress,
