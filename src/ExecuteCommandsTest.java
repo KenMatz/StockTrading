@@ -35,9 +35,22 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
     public void testCallingAPICommandsUntilSpecifiedStopTime()
 	    throws IOException {
+
+	// TODO: what is the best bid right now????
+	// if I wasnt a bid to execute immediately make sure price of bid is bigger than ask
+	// if I want ask to execute immediately make sure price is less than bid of compnay
+
+
+	// GAME PLAN
+	// team A and team B
+	// 1) find 2 stocks that is increasing  FB & Ea
+	// 2) A buy EA & B buys FB
+	// 3) few second later A sell EA & B sells FB
+	// 4) immediately A buys FB & B buys EA
+
 	String[] commandLineArguments = { this.hostIPAddress, this.portNumber,
 		this.onesqueakywheelTeam, this.onesqueakywheelTeamPassword,
-		this.APICommands.placeNewBid("FB", 10, 10) };
+		this.APICommands.getAllSharesYouOwn() };
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
