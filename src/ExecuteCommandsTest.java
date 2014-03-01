@@ -43,19 +43,20 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
     public void testCallingAPICommandsUntilSpecifiedStopTime()
 	    throws IOException {
+	//this.pauseAllProgramsThirtySeconds();
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
 	    String[] teamACommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.houseOfCardsTeam,
 		    this.houseOfCardsTeamPassword,
-		    this.APICommands.placeNewBid("FB", 24, 40) }; // placeNewBid("FB",
+		    this.APICommands.placeNewBid("FB", 110, 9) }; // placeNewBid("FB",
 								  // 24, 40)
 
-	    String[] teamBCommandLineArguments = { this.hostIPAddress,
-		    this.portNumber, this.onesqueakywheelTeam,
-		    this.onesqueakywheelTeamPassword,
-		    this.APICommands.placeNewBid("EA", 24, 40) };
+//	    String[] teamBCommandLineArguments = { this.hostIPAddress,
+//		    this.portNumber, this.onesqueakywheelTeam,
+//		    this.onesqueakywheelTeamPassword,
+//		    this.APICommands.placeNewBid("EA", 24, 40) };
 	    // placeNewBid("EA", 24, 40)
 
 	    // HOW TO MAKE MONEY:
@@ -71,7 +72,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    double stockOneAskPrice = 50;
 	    double stockTwoAskPrice = 50;
 	    ExchangeClient.main(teamACommandLineArguments);
-	    ExchangeClient.main(teamBCommandLineArguments);
+	    //ExchangeClient.main(teamBCommandLineArguments);
 
 	    // Step 4) a minute(not to long as dividends get very small) latter
 	    // this.pauseAllProgramsThirtySeconds();
