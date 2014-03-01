@@ -25,9 +25,38 @@ public class APICommands {
 	return "SECURITIES";
     }
 
-    public String getListAllOffersOnTheExchangeForATicker(int ticker) {
+    public String listAllOffersOnTheExchangeForATicker(int ticker) {
 	return "OFFERS " + ticker;
     }
 
-    // TODO:
+    public String placeNewBid(int ticker, int price, int shares) {
+	return "BID " + ticker + " " + price + " " + shares;
+    }
+
+    public String placeNewAsk(int ticker, int price, int shares) {
+	return "ASK " + ticker + " " + price + " " + shares;
+    }
+
+    public String clearYourBid(int ticker) {
+	return "CLEAR_BID " + ticker;
+    }
+
+    public String clearYourAsk(int ticker) {
+	return "CLEAR_ASK " + ticker;
+    }
+
+    /**
+     * this is the only command which will cause writes socket asynchronously
+     */
+    public String subscribeToAnyTradesYouMakeAsWellAsAnyBidsTheMarketMayAutomaticallyWithdrawDueToLackOfFunds() {
+	return "SUBSCRIBE";
+    }
+
+    public String unsubscribeFromUpdates() {
+	return "UNSUBSCRIBE";
+    }
+
+    public String closeConnectionToAPI() {
+	return "CLOSE_CONNECTION";
+    }
 }
