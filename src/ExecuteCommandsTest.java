@@ -46,27 +46,33 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
+	    // HOW TO MAKE MONEY:
+	    // Step 1) find out 2 stocks that are increasing linearly
+
 	    String[] teamACommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.houseOfCardsTeam,
 		    this.houseOfCardsTeamPassword,
-		    this.APICommands.placeNewBid("FB", 10, 10) };
+		    this.APICommands.getAllSharesYouOwn() };
 
 	    String[] teamBCommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.onesqueakywheelTeam,
 		    this.onesqueakywheelTeamPassword,
-		    this.APICommands.placeNewBid("EA", 10, 10) };
+		    this.APICommands.placeNewAsk("MSFT", 8, 49) };
 
-	    // HOW TO MAKE MONEY:
-	    // Step 1) find 2 stocks that are both increasing in net value
+	    // Step 2) find 2 stocks that are both increasing in net value
 	    // example: stockOne(EA) & stockTwo(FB)
 
-	    // Step 2) teamA buy stockOne(EA) & treamB buys stockTwo(FB) right
+	    // Step 3) teamA buy stockOne(EA) & treamB buys stockTwo(FB) right
 	    // above the ask price
 
-	    // Step 3) a minute(not to long as dividends get very small) latter
+	    // Step 4) a minute(not to long as dividends get very small) latter
+
+	    // make sure initial bid price is > the next ask price I am going to
+	    // use
+
 	    // teamA sell stockOne(EA) & teamB sells stockTwo(FB)
 
-	    // Step 4) immediately after teamA buys stockTwo(FB) & teamB buys
+	    // Step 5) immediately after teamA buys stockTwo(FB) & teamB buys
 	    // stockOne(EA)
 
 	    ExchangeClient.main(teamACommandLineArguments);
