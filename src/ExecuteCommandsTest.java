@@ -17,20 +17,8 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 		+ this.numberOfSecondToRunTradingAlgorithm;
     }
 
-    public void updateCurrentTime() {
-	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
-		.currentTimeMillis() / 1000);
-    }
-
-    public void pauseAllProgramsOneSecond() {
-	try {
-	    Thread.sleep(1000);
-	} catch (InterruptedException ex) {
-	    Thread.currentThread().interrupt();
-	}
-    }
-
-    public void testCallingAPICommands() throws IOException {
+    public void testCallingAPICommandsUntilSpecifiedStopTime()
+	    throws IOException {
 	String[] commandLineArguments = { "172.31.231.85", "17429",
 		"onesqueakywheel", "onemanarmy", "MY_CASH" };
 
@@ -40,6 +28,19 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
 	    this.pauseAllProgramsOneSecond();
 	    this.updateCurrentTime();
+	}
+    }
+
+    private void updateCurrentTime() {
+	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
+		.currentTimeMillis() / 1000);
+    }
+
+    private void pauseAllProgramsOneSecond() {
+	try {
+	    Thread.sleep(1000);
+	} catch (InterruptedException ex) {
+	    Thread.currentThread().interrupt();
 	}
     }
 }

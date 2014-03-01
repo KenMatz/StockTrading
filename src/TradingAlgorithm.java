@@ -24,7 +24,7 @@ public class TradingAlgorithm {
      * Remember, the shorter time you own a security the higher its average
      * payout per second.
      */
-    public String nextBestCommand() {
+    private String nextBestCommand() {
 	// MY_CASH = output your current cash
 	// MY_SECURITIES = output all shares you own
 	// MY_OFFERS = output all current offers BID & ASK on the exchange
