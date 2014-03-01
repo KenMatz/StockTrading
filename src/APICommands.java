@@ -12,6 +12,14 @@ public class APICommands {
 	return "MY_CASH";
     }
 
+    public String placeNewBid(String ticker, int price, int shares) {
+	return "BID " + ticker + " " + price + " " + shares;
+    }
+
+    public String placeNewAsk(String ticker, int price, int shares) {
+	return "ASK " + ticker + " " + price + " " + shares;
+    }
+
     public String getAllSharesYouOwn() {
 	return "MY_SECURITIES";
     }
@@ -26,14 +34,6 @@ public class APICommands {
 
     public String listAllOffersOnTheExchangeForATicker(String ticker) {
 	return "OFFERS " + ticker;
-    }
-
-    public String placeNewBid(String ticker, int price, int shares) {
-	return "BID " + ticker + " " + price + " " + shares;
-    }
-
-    public String placeNewAsk(String ticker, int price, int shares) {
-	return "ASK " + ticker + " " + price + " " + shares;
     }
 
     public String clearYourBid(String ticker) {
