@@ -46,18 +46,17 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
-	    String[] teamACommandLineArguments = {
-		    this.hostIPAddress,
-		    this.portNumber,
-		    this.houseOfCardsTeam,
+	    String[] teamACommandLineArguments = { this.hostIPAddress,
+		    this.portNumber, this.houseOfCardsTeam,
 		    this.houseOfCardsTeamPassword,
-		    this.APICommands
-			    .placeNewBid("FB", 20, 50) };
+		    this.APICommands.placeNewBid("FB", 24, 40) }; // placeNewBid("FB",
+								  // 24, 40)
 
 	    String[] teamBCommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.onesqueakywheelTeam,
 		    this.onesqueakywheelTeamPassword,
-		    this.APICommands.placeNewBid("EA", 20, 50) };
+		    this.APICommands.placeNewBid("EA", 24, 40) };
+	    // placeNewBid("EA", 24, 40)
 
 	    // HOW TO MAKE MONEY:
 	    // Step 1) find out 2 stocks that are increasing linearly
@@ -75,7 +74,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    ExchangeClient.main(teamBCommandLineArguments);
 
 	    // Step 4) a minute(not to long as dividends get very small) latter
-	    //this.pauseAllProgramsThirtySeconds();
+	    // this.pauseAllProgramsThirtySeconds();
 
 	    // make sure initial bid price is > the next ask price I am going to
 	    // use stock with lowest ask price
@@ -91,7 +90,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
     }
 
     private String whichStockIsLinearlyIncreasing() {
-	//System.out.println("which stock is linearly increasing");
+	// System.out.println("which stock is linearly increasing");
 	String[] teamACommandLineArguments = {
 		this.hostIPAddress,
 		this.portNumber,
@@ -99,7 +98,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 		this.houseOfCardsTeamPassword,
 		this.APICommands
 			.getAllSecuritiesInTheForm_ticker_netWorth_divident_volatility() };
-	//System.out.println(teamACommandLineArguments[0]);
+	// System.out.println(teamACommandLineArguments[0]);
 	return "";
     }
 
