@@ -14,7 +14,7 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
     public void setUp() {
 	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
 		.currentTimeMillis() / 1000);
-	this.numberOfSecondsToRunTradingAlgorithm = 5;
+	this.numberOfSecondsToRunTradingAlgorithm = 60;
 	this.timeToStopProgram = currentTimeInSecondsSinceMidnightJanuaryFirst1970
 		+ this.numberOfSecondsToRunTradingAlgorithm;
 
