@@ -5,18 +5,24 @@ import java.io.IOException;
  * @version Feb 28, 2014
  */
 public class ExecuteCommandsTest extends junit.framework.TestCase {
-
+    private long currentTimeInSecondsSinceMidnightJanuaryFirst1970;
     private long numberOfSecondToRunTradingAlgorithm;
+    private long timeToStopProgram;
 
     public void setUp() {
+	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
+		.currentTimeMillis() / 1000);
 	this.numberOfSecondToRunTradingAlgorithm = 5;
+	this.timeToStopProgram = currentTimeInSecondsSinceMidnightJanuaryFirst1970
+		+ this.numberOfSecondToRunTradingAlgorithm;
+    }
+
+    public void updateCurrentTime() {
+	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
+		.currentTimeMillis() / 1000);
     }
 
     public void testCallingAPICommands() throws IOException {
-	long currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
-		.currentTimeMillis() / 1000);
-	long timeToStopProgram = currentTimeInSecondsSinceMidnightJanuaryFirst1970
-		+ this.numberOfSecondToRunTradingAlgorithm;
 
 	System.out.println("this is working");
 
@@ -24,8 +30,19 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 		"onesqueakywheel", "onemanarmy", "MY_CASH" };
 	ExchangeClient.main(commandLineArguments);
 
-	System.out
-		.println(currentTimeInSecondsSinceMidnightJanuaryFirst1970);
+	System.out.println(currentTimeInSecondsSinceMidnightJanuaryFirst1970);
 	System.out.println(timeToStopProgram);
+
+	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
+	    ExchangeClient.main(commandLineArguments);
+	    this.updateCurrentTime();
+
+	    // make the program wait 1 second before continuing
+	    try {
+		Thread.sleep(1000);
+	    } catch (InterruptedException ex) {
+		Thread.currentThread().interrupt();
+	    }
+	}
     }
 }
