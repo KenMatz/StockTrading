@@ -9,25 +9,30 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
     private long numberOfSecondToRunTradingAlgorithm;
     private long timeToStopProgram;
 
+    private APICommands APICommands;
+
     public void setUp() {
 	this.currentTimeInSecondsSinceMidnightJanuaryFirst1970 = (System
 		.currentTimeMillis() / 1000);
 	this.numberOfSecondToRunTradingAlgorithm = 5;
 	this.timeToStopProgram = currentTimeInSecondsSinceMidnightJanuaryFirst1970
 		+ this.numberOfSecondToRunTradingAlgorithm;
+
+	this.APICommands = new APICommands();
     }
 
     public void testCallingAPICommandsUntilSpecifiedStopTime()
 	    throws IOException {
 	String[] commandLineArguments = { "172.31.231.85", "17429",
-		"onesqueakywheel", "onemanarmy", "MY_CASH" };
+		"onesqueakywheel", "onemanarmy",
+		this.APICommands.getCurrentCash() };
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
 	    ExchangeClient.main(commandLineArguments);
 
-	    this.pauseAllProgramsOneSecond();
 	    this.updateCurrentTime();
+	    this.pauseAllProgramsOneSecond();
 	}
     }
 
