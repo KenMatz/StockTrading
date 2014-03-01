@@ -31,16 +31,10 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
     }
 
     public void testCallingAPICommands() throws IOException {
-
-	System.out.println("this is working");
-
 	String[] commandLineArguments = { "172.31.231.85", "17429",
 		"onesqueakywheel", "onemanarmy", "MY_CASH" };
-	ExchangeClient.main(commandLineArguments);
 
-	System.out.println(currentTimeInSecondsSinceMidnightJanuaryFirst1970);
-	System.out.println(timeToStopProgram);
-
+	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
 	    ExchangeClient.main(commandLineArguments);
 
