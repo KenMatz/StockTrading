@@ -46,18 +46,28 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 
 	// runs program for this.numberOfSecondToRunTradingAlgorithm
 	while (currentTimeInSecondsSinceMidnightJanuaryFirst1970 < timeToStopProgram) {
-	    // GAME PLAN
-	    // team A and team B
-	    // 1) find 2 stocks that is increasing FB & Ea
-	    // 2) A buy EA & B buys FB
-	    // 3) few second later A sell EA & B sells FB
-	    // 4) immediately A buys FB & B buys EA
+	    // HOW TO MAKE MONEY!
+	    // Step 1) find 2 stocks that are both increasing in net value
+	    // example: stockOne & stockTwo
+
+	    // Step 2) teamA buy stockOne & treamB buys stockTwo right above the
+	    // ask price
+
+	    // Step 3) few second later A sell EA & B sells FB
+
+	    // Step 4) immediately A buys FB & B buys EA
 	    String[] teamACommandLineArguments = { this.hostIPAddress,
-			this.portNumber, this.houseOfCardsTeam,
-			this.houseOfCardsTeamPassword,
-			this.APICommands.getCurrentCash() };
+		    this.portNumber, this.houseOfCardsTeam,
+		    this.houseOfCardsTeamPassword,
+		    this.APICommands.placeNewBid("FB", 10, 10) };
+
+	    String[] teamBCommandLineArguments = { this.hostIPAddress,
+		    this.portNumber, this.onesqueakywheelTeam,
+		    this.onesqueakywheelTeamPassword,
+		    this.APICommands.placeNewBid("EA", 10, 10) };
 
 	    ExchangeClient.main(teamACommandLineArguments);
+	    ExchangeClient.main(teamBCommandLineArguments);
 
 	    this.pauseAllProgramsOneSecond();
 	    this.updateCurrentTime();
