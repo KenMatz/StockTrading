@@ -50,14 +50,12 @@ public class ExecuteCommandsTest extends junit.framework.TestCase {
 	    String[] teamACommandLineArguments = { this.hostIPAddress,
 		    this.portNumber, this.houseOfCardsTeam,
 		    this.houseOfCardsTeamPassword,
-		    this.APICommands.placeNewBid("FB", 31, 31) }; // placeNewBid("FB",
-								  // 24, 40)
+		    this.APICommands.placeNewBid("EA", 31, 31) };
 
-//	    String[] teamBCommandLineArguments = { this.hostIPAddress,
-//		    this.portNumber, this.onesqueakywheelTeam,
-//		    this.onesqueakywheelTeamPassword,
-//		    this.APICommands.placeNewBid("EA", 24, 40) };
-	    // placeNewBid("EA", 24, 40)
+	    String[] teamBCommandLineArguments = { this.hostIPAddress,
+		    this.portNumber, this.onesqueakywheelTeam,
+		    this.onesqueakywheelTeamPassword,
+		    this.APICommands.placeNewBid("EA", 24, 40) };
 
 	    // HOW TO MAKE MONEY:
 	    // Step 1) find out 2 stocks that are increasing linearly
