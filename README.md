@@ -10,7 +10,8 @@ maximize my total earnings through collecting the highest dividends on
 linearly increasing stocks.
 
 Since the hackathon is over running the trading algorithm by
-running the file ```ExecuteCommandsTest.java``` as a junit test will only 
+running the file ```ExecuteCommandsTest.java``` located 
+[here](./src/ExecuteCommandsTest.java) as a junit test will only 
 throw exceptions now :)
 
 ===============================================================
